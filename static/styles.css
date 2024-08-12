@@ -1,0 +1,153 @@
+/* Reset some default styles */
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    font-family: 'Luminari', fantasy; /* Use Great Vibes with Luminari as fallback */
+    background: #000;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.binary-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    z-index: 1;
+    pointer-events: none;
+    perspective: 10000px; /* Set perspective for 3D space */
+}
+
+.binary {
+    font-size: 30px;
+    color: green;
+    margin: 0;
+    flex: 0 0 15px;
+    -webkit-transform: translateZ(-20px) rotateX(45deg) rotateY(20deg); /* Safari & Chrome */
+    -moz-transform: translateZ(-20px) rotateX(45deg) rotateY(20deg); /* Firefox */
+    transform: translateZ(-20px) rotateX(45deg) rotateY(20deg); /* Standard */
+    animation: binarySpin 8s linear infinite; /* Add animation keyframes for continuous rotation */
+}
+
+@keyframes binarySpin {
+    from {
+        transform: translateZ(-20px) rotateX(45deg) rotateY(20deg);
+    }
+    to {
+        transform: translateZ(-20px) rotateX(45deg) rotateY(360deg); /* Rotate a full circle */
+    }
+}
+
+.binary.clockwise {  
+    animation-direction: normal;  
+}  
+
+.binary.anticlockwise {  
+    animation-direction: reverse;  
+}  
+
+.container {
+    position: relative;
+    z-index: 1;
+}
+
+h1.glitch {
+    font-size: 6em; /* Increased font size */
+    font-weight: bold;
+    position: relative;
+    display: inline-block;
+    color: rgb(98, 192, 98);
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+    text-align: left;
+    white-space: nowrap; /* Ensure words do not wrap */
+}
+
+h1.glitch span {
+    display: block;
+    opacity: 0;
+}
+
+.login-button {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    padding: 10px 30px;
+    font-size: 17px;
+    font-weight: bold; /* Bold effect */
+    color:   rgb(98, 192, 98); /* Cyber green */
+    background: black;
+    border: 1px solid #ffffff;
+    border-radius: 7px; /* Soft corners */
+    cursor: pointer;
+    transition: all 0.5s ease-in-out; /* Smooth transition */
+    transform: perspective(500px) rotateY(0deg); /* Initial transform */
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.5); /* Initial shadow */
+}
+
+.cyber, .range, .development {
+    position: relative;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+}
+
+.cyber {
+    animation-name: cyberMove, glow;
+    animation-timing-function: ease;
+    animation-delay: 0s, 0s;
+}
+
+.range {
+    animation-name: rangeMove, glow;
+    animation-timing-function: ease;
+    animation-delay: 0.5s, 0.5s;
+    margin-top: 0em; /* Adjust to align "Range" below "Cyber" */
+    margin-left: 1.5em;  Adjust to align "Range" under "Cyber"
+}
+
+.development {
+    animation-name: developmentMove, glow;
+    animation-timing-function: ease;
+    animation-delay: 1s, 1s;
+    margin-top: 0em; /* Adjust to align "Development" below "Range" */
+    margin-left: 3.0em;  Adjust to align "Development" under "Range"
+}
+
+@keyframes cyberMove {
+    0% {
+        opacity: 0;
+        transform: translateY(-100%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes rangeMove {
+    0% {
+        opacity: 0;
+        transform: translateY(100%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes developmentMove {
+    0% {
+        opacity: 0;
+        transform: translateY(100%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
